@@ -16,7 +16,7 @@
 * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301 USA
 *
-* Authored by: Martin Stork <martinstork95@gmail.com>
+* Authored by: Martin Stork <martin.stork95@gmail.com>
 */
 
 public class Application : Gtk.Application {
