@@ -34,7 +34,9 @@ public class Application : Gtk.Application {
             title = "MyApp"
         };
         
-        var label = new Gtk.Label ("Hello Again World!");
+        /// TRANSLATORS: This is a string you can translate
+        string hello_again_world = _("Hello Again World!");
+        var label = new Gtk.Label (hello_again_world);
         
         main_window.add(label);
         main_window.show_all();
