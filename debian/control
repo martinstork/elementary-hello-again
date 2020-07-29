@@ -1,0 +1,15 @@
+Source: com.github.martinstork.elementary-hello-again
+Section: x11
+Priority: optional
+Maintainer: Martin Stork <martin.stork95@gmail.com>
+Build-Depends: cmake (>= 2.8),
+               debhelper (>= 9),
+               libgtk-3-dev,
+               valac (>= 0.40.0)
+Standards-Version: 3.9.3
+
+Package: com.github.martinstork.elementary-hello-again
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Hello Again test app
+ This is my Hello Again test app from the elementary documentation
