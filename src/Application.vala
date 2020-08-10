@@ -26,19 +26,28 @@ public class Application : Gtk.Application {
             flags: ApplicationFlags.FLAGS_NONE
         );
     }
-    
+
     protected override void activate () {
         var main_window = new Gtk.ApplicationWindow(this) {
             default_height = 200,
             default_width = 300,
             title = "MyApp"
         };
-        
+
+        var grid = new Gtk.Grid ();
+        grid.orientation = Gtk.Orientation.VERTICAL;
+
+
+
         /// TRANSLATORS: This is a string you can translate
-        string hello_again_world = _("Hello Again World!");
+        string hello_again_world = _("1. Hello Again World!");
         var label = new Gtk.Label (hello_again_world);
-        
-        main_window.add(label);
+
+        grid.add (label);
+        grid.add (new Gtk.Label (_("2. This is another label")));
+
+        main_window.add (grid);
+
         main_window.show_all();
     }
 
