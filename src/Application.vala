@@ -34,19 +34,37 @@ public class Application : Gtk.Application {
             title = "MyApp"
         };
 
+        var hello_button = new Gtk.Button.with_label (_("Say Hello"));
+        var hello_label = new Gtk.Label (null);
+
+        var rotate_button = new Gtk.Button.with_label (_("Rotate"));
+        var rotate_label = new Gtk.Label (_("Horizontal"));
+
         var grid = new Gtk.Grid ();
-        grid.orientation = Gtk.Orientation.VERTICAL;
+        grid.column_spacing = 6;
+        grid.row_spacing = 6;
 
+        // add first row of widgets
+        grid.attach (hello_button, 0, 0, 2, 1);
+        // default behaviour: span 1 column and row
+        grid.attach_next_to (hello_label, hello_button, Gtk.PositionType.RIGHT);
 
-
-        /// TRANSLATORS: This is a string you can translate
-        string hello_again_world = _("1. Hello Again World!");
-        var label = new Gtk.Label (hello_again_world);
-
-        grid.add (label);
-        grid.add (new Gtk.Label (_("2. This is another label")));
+        // add second row of widgets
+        grid.attach (rotate_button, 0, 1);
+        grid.attach_next_to (rotate_label, rotate_button, Gtk.PositionType.RIGHT, 1, 1);
 
         main_window.add (grid);
+
+        hello_button.clicked.connect (() => {
+            hello_label.label = _("Hello World!");
+            hello_button.sensitive = false;
+        });
+
+        rotate_button.clicked.connect (() => {
+            rotate_label.angle = 90;
+            rotate_label.label = _("Vertical");
+            rotate_button.sensitive = false;
+        });
 
         main_window.show_all();
     }
